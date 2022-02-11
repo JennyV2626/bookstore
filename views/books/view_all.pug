@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     h3 Books
+    a(href='/books/add') Add Book
     table
         thead
             tr
@@ -22,4 +23,4 @@ block content
                     td= book.pages
                     td= book.description
                     td
-                        a(href=`/books/profile${book.id}`) View Book
+                        a(href=`/books/profile/${book.id}`) View Book

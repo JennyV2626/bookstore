@@ -1,3 +1,5 @@
 extends ../layout
 
 block content
+    include ../mixins/booksForm
+    +booksForm(book, genres, `/books/add`, `/books`)

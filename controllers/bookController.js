@@ -14,8 +14,30 @@ module.exports.viewProfile = async function(req, res){
 }
 
 //render add form
+module.exports.renderAddForm = function(req, res){
+    const books = {
+        title: '',
+        author: '',
+        publisher: '',
+        genre: genres[0],
+        pages: '',
+        description: ''
+    }
+    res.render('books/add', {books, genres})
+}
 
 //add
+module.exports.addBook = async function(req, res){
+    const books = await Book.create({
+        title: req.body.title,
+        author: req.body.author,
+        publisher: req.body.publisher,
+        genre: req.body.genre,
+        pages: req.body.pages,
+        description: req.body.description
+    });
+    res.redirect(`/books/profile/${books.id}`);
+}
 
 //render edit form
 module.exports.renderEditForm = async function(req, res){
@@ -41,3 +63,11 @@ module.exports.updateBook = async function(req, res){
 }
 
 //delete
+module.exports.deleteBook = async function(req, res){
+    await Book.destroy({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.redirect('/books');
+}
