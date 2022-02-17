@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const bookController = require('../controllers/bookController.js');
+const authorController = require('../controllers/authorController.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,6 +15,8 @@ router.post('/books/edit/:id', bookController.updateBook);
 router.get('/books/add', bookController.renderAddForm);
 router.post('/books/add', bookController.addBook);
 router.get('/books/delete/:id', bookController.deleteBook);
+
+router.get('/authors', authorController.viewAll);
 
 
 module.exports = router;
