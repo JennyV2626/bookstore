@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+
+    a(href=`/authors/edit/${authors.id}`) Edit Author
+    a(href=`/authors/delete/${authors.id}`) Delete Author
+    div
+        p Author: #{authors.first_name} #{authors.last_name}
+        p Book: #{authors.book_written}
+        p DOB: #{authors.dob}

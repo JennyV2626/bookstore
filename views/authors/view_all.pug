@@ -6,18 +6,17 @@ block content
     table
         thead
             tr
-                th Author
                 th First Name
                 th Last Name
-                th Book Writen
+                th Book
                 th DOB
                 th
         tbody
-            each book in books
+            each author in authors
                 tr
                     td= author.first_name
                     td= author.last_name
                     td= author.book_written
                     td= author.dob
                     td
-                        a(href=`/author/profile/${author.id}`) View Author
+                        a(href=`/authors/profile/${author.id}`) View Author
